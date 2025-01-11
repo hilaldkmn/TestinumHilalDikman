@@ -1,0 +1,8 @@
+[
+  {
+    "locatorName": "addFavoriteButton",
+    "locatorDescription": "Add favorite button in search result page",
+    "locatorType": "xpath",
+    "locator": "//button[@data-testid = 'favorite-search-add-button']"
+  }
+]

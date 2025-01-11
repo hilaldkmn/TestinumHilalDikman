@@ -1,0 +1,38 @@
+[
+  {
+    "locatorName": "emailInput",
+    "locatorDescription": "Email input field on homepage",
+    "locatorType": "xpath",
+    "locator": "//input[@placeholder='Username']"
+  },
+  {
+    "locatorName": "passwordInput",
+    "locatorDescription": "Password input field on homepage",
+    "locatorType": "xpath",
+    "locator": "//input[@placeholder='Password']"
+  },
+  {
+    "locatorName": "loginButton",
+    "locatorDescription": "Login button on homepage",
+    "locatorType": "xpath",
+    "locator": "//div[text()='Login']"
+  },
+  {
+    "locatorName": "logoutButton",
+    "locatorDescription": "Appeared logout button after user logged in",
+    "locatorType": "xpath",
+    "locator": "//div[text()='Logout']"
+  },
+  {
+    "locatorName": "balance",
+    "locatorDescription": "Balance amount on Account page",
+    "locatorType": "xpath",
+    "locator": "//div[contains(text(), 'Amount')]/following-sibling::div//div[@dir='auto']"
+  },
+  {
+    "locatorName": "openMoneyTransfer",
+    "locatorDescription": "Open money transfer button on after login",
+    "locatorType": "xpath",
+    "locator": "//div[text()='Open Money Transfer']"
+  }
+]
