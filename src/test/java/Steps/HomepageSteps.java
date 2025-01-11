@@ -69,14 +69,6 @@ public class HomepageSteps {
         homepage.checkUserLoggedOut();
     }
 
-    @And("kullanıcının {string} değeri API'den kontrol edilir")
-    public void checkBalanceIsSameAsDatabase(String balanceLocator) {
-        try {
-            accountPage.checkBalanceIsSameAsDatabase(balanceLocator);
-        } catch (Exception e) {
-            fail();
-        }
-    }
 
 
 }

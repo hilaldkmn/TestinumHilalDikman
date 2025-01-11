@@ -14,20 +14,6 @@ public class Homepage extends BasePage {
         super(webDriver);
     }
 
-    public void enterTextToInput(String element, String text) {
-        WebElement searchElement = findElement(LocatorManager.getLocator(element));
-        if (text.startsWith("[") && text.endsWith("]")) {
-            text = System.getProperty(text.substring(1, text.length() - 1));
-        }
-        sendKeys(searchElement, text);
-        logger.info("Entered " + text + " to " + element);
-    }
-
-    public void clickButtonOnPage(String element) {
-        WebElement buttonElement = findElement(LocatorManager.getLocator(element));
-        click(buttonElement);
-        logger.info("Clicked on " + element);
-    }
 
     public void checkUserLoggedIn() {
         WebElement userElement = findElement(LocatorManager.getLocator("logoutButton"));

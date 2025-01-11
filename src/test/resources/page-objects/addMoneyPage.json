@@ -1,0 +1,8 @@
+[
+  {
+    "locatorName": "addMoneyButton",
+    "locatorDescription": "Add money button on Account page",
+    "locatorType": "xpath",
+    "locator": "//div[contains(text(), 'Add money')]"
+  }
+]

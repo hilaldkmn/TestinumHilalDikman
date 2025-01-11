@@ -30,5 +30,22 @@ public class AccountPage extends BasePage {
         assertEquals(balance, balanceFromDatabase, 0.0);
     }
 
+    public void checkAccounNameIsSameAsDatabase(String nameLocator) throws ParseException {
+        WebElement nameElement = findElement(LocatorManager.getLocator(nameLocator));
+        String name = getText(nameElement);
+        Map<String, Object> accountInformation = AccountService.getAccountInformation();
+        String nameFromDatabase = (String) accountInformation.get("bank_account_name");
+        logger.info("Checking if Account Name is the same as in the database");
+        assertEquals(name, nameFromDatabase);
+    }
+
+    public void checkAccounTypeIsSameAsDatabase(String typeLocator) throws ParseException {
+        WebElement typeElement = findElement(LocatorManager.getLocator(typeLocator));
+        String type = getText(typeElement);
+        Map<String, Object> typeInformation = AccountService.getAccountInformation();
+        String typeFromDatabase = (String) typeInformation.get("bank_account_type");
+        logger.info("Checking if Type Name is the same as in the database");
+        assertEquals(type, typeFromDatabase);
+    }
 
 }

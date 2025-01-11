@@ -1,0 +1,20 @@
+[
+  {
+    "locatorName": "accountAmount",
+    "locatorDescription": "Amount on Account page",
+    "locatorType": "xpath",
+    "locator": "//div[contains(text(), 'Amount')]/following-sibling::div//div[@dir='auto']"
+  },
+  {
+    "locatorName": "accountName",
+    "locatorDescription": "Account Name on Account page",
+    "locatorType": "xpath",
+    "locator": "//div[contains(text(), 'Account name')]/following-sibling::div[@dir='auto']"
+  },
+  {
+    "locatorName": "accountType",
+    "locatorDescription": "Account Type on Account page",
+    "locatorType": "xpath",
+    "locator": "//div[contains(text(), 'Account type')]/following-sibling::div[@dir='auto']"
+  }
+]

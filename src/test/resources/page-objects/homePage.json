@@ -24,12 +24,6 @@
     "locator": "//div[text()='Logout']"
   },
   {
-    "locatorName": "balance",
-    "locatorDescription": "Balance amount on Account page",
-    "locatorType": "xpath",
-    "locator": "//div[contains(text(), 'Amount')]/following-sibling::div//div[@dir='auto']"
-  },
-  {
     "locatorName": "openMoneyTransfer",
     "locatorDescription": "Open money transfer button on after login",
     "locatorType": "xpath",

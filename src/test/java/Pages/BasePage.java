@@ -1,5 +1,6 @@
 package Pages;
 
+import Utils.LocatorManager;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.LogManager;
@@ -130,6 +131,21 @@ public class BasePage {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Invalid input: Unable to parse formattedNumber", e);
         }
+    }
+
+    public void enterTextToInput(String element, String text) {
+        WebElement searchElement = findElement(LocatorManager.getLocator(element));
+        if (text.startsWith("[") && text.endsWith("]")) {
+            text = System.getProperty(text.substring(1, text.length() - 1));
+        }
+        sendKeys(searchElement, text);
+        logger.info("Entered " + text + " to " + element);
+    }
+
+    public void clickButtonOnPage(String element) {
+        WebElement buttonElement = findElement(LocatorManager.getLocator(element));
+        click(buttonElement);
+        logger.info("Clicked on " + element);
     }
 
 
