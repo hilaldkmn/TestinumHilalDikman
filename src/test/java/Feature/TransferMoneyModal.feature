@@ -14,7 +14,7 @@ Feature: CatchyLabs Actions Transfer Money Modal
     And kullanıcının "transferMoneyText" elementinde "Transfer money" metnini gördüğü doğrulanır
 
   @SenderInfoHilalTestCase @all
-  Scenario: Testinium-2 alici hesabina 1 dolar gonderme ve  arayuz gonderici kontrolu 
+  Scenario: Testinium-2 alici hesabina 1 dolar gonderme ve arayuz gonderici kontrolu
     And kullanıcı "receiverAccountSelect" butonuna tıklar
     And kullanıcı "Testinium-2Account" butonuna tıklar
     And Açılan uyarı varsa Tamam butonuna basılır
@@ -23,7 +23,7 @@ Feature: CatchyLabs Actions Transfer Money Modal
     And kullanıcının "accountSenderInfo" elementinde "hilal" metnini gördüğü doğrulanır
 
   @ReceiverAccountTestinium-2TestCase @all
-  Scenario: Testinium-2 alici hesabina 100 dolar gonderme ve  arayuz alici kontrolu 
+  Scenario: Testinium-2 alici hesabina 1 dolar gonderme ve arayuz alici kontrolu
     And kullanıcı "receiverAccountSelect" butonuna tıklar
     And kullanıcı "Testinium-2Account" butonuna tıklar
     And Açılan uyarı varsa Tamam butonuna basılır
@@ -32,7 +32,7 @@ Feature: CatchyLabs Actions Transfer Money Modal
     And kullanıcının "accountReceiverInfo" elementinde "Testinium-2" metnini gördüğü doğrulanır
 
   @ReceiverAccountTestinium-5TestCase @all
-  Scenario: Testinium-5 alici hesabina 100 dolar gonderme ve  arayuz alici kontrolu 
+  Scenario: Testinium-5 alici hesabina 1 dolar gonderme ve  arayuz alici kontrolu
     And kullanıcı "receiverAccountSelect" butonuna tıklar
     And kullanıcı "Testinium-5Account" butonuna tıklar
     And kullanıcı "transferMoneyAmount" alanına "1" yazar
@@ -40,7 +40,7 @@ Feature: CatchyLabs Actions Transfer Money Modal
     And kullanıcının "accountReceiverInfo" elementinde "Testinium-5" metnini gördüğü doğrulanır
 
   @ReceiverAccountTestinium-4TestCase @all
-  Scenario: Testinium-4 alici hesabina 100 dolar gonderme ve  arayuz alici kontrolu 
+  Scenario: Testinium-4 alici hesabina 1 dolar gonderme ve  arayuz alici kontrolu
     And kullanıcı "receiverAccountSelect" butonuna tıklar
     And kullanıcı "Testinium-4Account" butonuna tıklar
     And kullanıcı "transferMoneyAmount" alanına "1" yazar
@@ -48,7 +48,7 @@ Feature: CatchyLabs Actions Transfer Money Modal
     And kullanıcının "accountReceiverInfo" elementinde "Testinium-4" metnini gördüğü doğrulanır
 
   @ReceiverAccountTestinium-3TestCase @all
-  Scenario: Testinium-3 alici hesabina 100 dolar gonderme ve  arayuz alici kontrolu 
+  Scenario: Testinium-3 alici hesabina 1 dolar gonderme ve  arayuz alici kontrolu
     And kullanıcı "receiverAccountSelect" butonuna tıklar
     And kullanıcı "Testinium-3Account" butonuna tıklar
     And kullanıcı "transferMoneyAmount" alanına "1" yazar
@@ -56,7 +56,7 @@ Feature: CatchyLabs Actions Transfer Money Modal
     And kullanıcının "accountReceiverInfo" elementinde "Testinium-3" metnini gördüğü doğrulanır
 
   @ReceiverAccountTestinium-1TestCase @all
-  Scenario: Testinium-1 alici hesabina 100 dolar gonderme ve  arayuz alici kontrolu 
+  Scenario: Testinium-1 alici hesabina 1 dolar gonderme ve  arayuz alici kontrolu
     And kullanıcı "receiverAccountSelect" butonuna tıklar
     And kullanıcı "Testinium-1Account" butonuna tıklar
     And kullanıcı "transferMoneyAmount" alanına "1" yazar
@@ -64,7 +64,7 @@ Feature: CatchyLabs Actions Transfer Money Modal
     And kullanıcının "accountReceiverInfo" elementinde "Testinium-1" metnini gördüğü doğrulanır
 
   @LastSendAmountTestCase @all
-  Scenario: Testinium-2 alici hesabina 20 dolar gonderme ve  arayuz gonderilen tutar kontrolu
+  Scenario: Testinium-2 alici hesabina 20 dolar gonderme ve arayuz gonderilen tutar kontrolu
     And kullanıcı "receiverAccountSelect" butonuna tıklar
     And kullanıcı "Testinium-2Account" butonuna tıklar
     And Açılan uyarı varsa Tamam butonuna basılır
@@ -72,7 +72,7 @@ Feature: CatchyLabs Actions Transfer Money Modal
     And kullanıcı "transferMoneySendButton" butonuna tıklar
     And kullanıcının "lastSendAmountInfo" elementinde "20" metnini gördüğü doğrulanır
 
-  @CheckAmountAfterAmountsentTestCase @all
+  @CheckAmountAfterAmountSentTestCase @all
   Scenario: Testinium-2 alici hesabina 200 dolar gonderme ve kalan bakiye kontrolu
     And API balance değeri hafızaya alınır
     And kullanıcı "receiverAccountSelect" butonuna tıklar

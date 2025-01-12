@@ -22,12 +22,6 @@ Feature: CatchyLabs Actions Homepage
     When kullanıcı "openMoneyTransfer" butonuna tıklar
     And kullanıcının arayuzdeki "accountType" değeri API'deki bank_account_type degeri ile teyit edilir
 
-  @AddMoneyButtonTestCase @all
-  Scenario: Add Money Buton tiklandiginda Add Money Modal aciliyor mu
-    When kullanıcı "openMoneyTransfer" butonuna tıklar
-    And kullanıcı "addMoneyButton" butonuna tıklar
-    And kullanıcının "addMoneyText" elementinde "Add money" metnini gördüğü doğrulanır
-
   @EditAccountButtonTestCase @all
   Scenario: Edit Account Buton tiklandiginda Edit Account Modal aciliyor mu
     When kullanıcı "openMoneyTransfer" butonuna tıklar

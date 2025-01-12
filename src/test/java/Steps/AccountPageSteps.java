@@ -75,4 +75,15 @@ public class AccountPageSteps {
     public void checkAmountSentBalanceWithAPI(String element){
         accountPage.checkAmountSentBalanceWithAPI(element);
     }
+
+    @And("Kullanıcı {string} tutarını kendine gönderdiğinde kalan bakiye doğru hesaplanmalıdır")
+    public void checkAmountReceiveBalanceWithAPI(String element){
+        accountPage.checkAmountReceiveBalanceWithAPI(element);
+    }
+
+    @And("bir daha incele calismasi gerekli")
+    public void gerekli(String element){
+        System.out.println("gerekli");
+    }
+
 }

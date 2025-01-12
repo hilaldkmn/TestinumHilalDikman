@@ -53,14 +53,12 @@ public class AccountPage extends BasePage {
         Map<String, Object> accountInformation = AccountService.getAccountInformation();
         double balanceFromDatabase = (double) accountInformation.get("balance");
         storedBalance = balanceFromDatabase;
-        System.out.println("ilk "+storedBalance);
         logger.info(" | API Balance: " + balanceFromDatabase);
     }
 
     public void verifyStoredBalanceWithAPI(){
         Map<String, Object> accountInformation = AccountService.getAccountInformation();
         double balanceFromDatabase = (double) accountInformation.get("balance");
-        System.out.println("son "+balanceFromDatabase);
         assertEquals(balanceFromDatabase, storedBalance, 0.0);
         logger.info("Stored Balance (API’den gelen önceki değer): " + storedBalance);
     }
@@ -68,10 +66,18 @@ public class AccountPage extends BasePage {
     public void checkAmountSentBalanceWithAPI(String amountSent){
         double dblAmountSent = Double.parseDouble(amountSent);
         double endbalance = storedBalance - dblAmountSent;
-        System.out.println("son "+endbalance);
-        System.out.println("eski "+storedBalance);
+        System.out.println("soncikarilan "+endbalance);
+        System.out.println("yeni "+storedBalance);
         assertEquals(storedBalance, endbalance, 0.0);
         logger.info("Stored Balance (API’den gelen önceki değer): " + storedBalance);
     }
 
+    public void checkAmountReceiveBalanceWithAPI(String amountreceived){
+        double dblAmountSent = Double.parseDouble(amountreceived);
+        double endbalance = storedBalance + dblAmountSent;
+        System.out.println("sontoplam "+ endbalance);
+        System.out.println("yeni "+ storedBalance);
+        assertEquals(storedBalance, endbalance, 0.0);
+        logger.info("Stored Balance (API’den gelen önceki değer): " + storedBalance);
+    }
 }

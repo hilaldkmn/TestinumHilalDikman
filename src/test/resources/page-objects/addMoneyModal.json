@@ -10,5 +10,71 @@
     "locatorDescription": "Add money text on Add Money Modal",
     "locatorType": "xpath",
     "locator": "//div[@dir='auto']/preceding-sibling::div[contains(text(), 'Add money')]"
+  },
+  {
+    "locatorName": "cardNumberInput",
+    "locatorDescription": "Card Number Input text on Add Money Modal",
+    "locatorType": "xpath",
+    "locator": "//div[contains(text(), 'Card number')]/following-sibling::input"
+  },
+  {
+    "locatorName": "cardHolderInput",
+    "locatorDescription": "Card Holder Input text on Add Money Modal",
+    "locatorType": "xpath",
+    "locator": "//div[contains(text(), 'Card holder')]/following-sibling::input"
+  },
+  {
+    "locatorName": "expiryDateInput",
+    "locatorDescription": "Expiry date Input text on Add Money Modal",
+    "locatorType": "xpath",
+    "locator": "//input[@placeholder='MM/YY']"
+  },
+  {
+    "locatorName": "cVVInput",
+    "locatorDescription": "CVV Input text on Add Money Modal",
+    "locatorType": "xpath",
+    "locator": "//div[contains(text(), 'CVV')]/following-sibling::input"
+  },
+  {
+    "locatorName": "amountInput",
+    "locatorDescription": "Amount Input text on Add Money Modal",
+    "locatorType": "xpath",
+    "locator": "//div[contains(text(), 'Amount')]/following-sibling::input"
+  },
+  {
+    "locatorName": "addMoneyModalAddButton",
+    "locatorDescription": "Send button on Add Money Modal",
+    "locatorType": "xpath",
+    "locator": "//div[text()='Add']"
+  },
+  {
+    "locatorName": "ownAccountReceiverInfo",
+    "locatorDescription": "Account Receiver Info on Account page",
+    "locatorType": "xpath",
+    "locator": "(//div[contains(text(), 'Amount:')]/following-sibling::div//div[contains(text(), '20')])[1]"
+  },
+  {
+    "locatorName": "missingCardNumberAlert",
+    "locatorDescription": "Missing Card Alert on Add Money Modal",
+    "locatorType": "xpath",
+    "locator": "//div[text()='Too Short!']"
+  },
+  {
+    "locatorName": "extraNumberCardNumberAlert",
+    "locatorDescription": "Extra Number Card Alert on Add Money Modal",
+    "locatorType": "xpath",
+    "locator": "//div[text()='Too Long!']"
+  },
+  {
+    "locatorName": "wrongDateExpiryDateAlert",
+    "locatorDescription": "Wrong Date Alert on Add Money Modal",
+    "locatorType": "xpath",
+    "locator": "//div[text()='Wrong date. Please give a correct date']"
+  },
+  {
+    "locatorName": "stringAmountAlert",
+    "locatorDescription": "String Amount Alert on Add Money Modal",
+    "locatorType": "xpath",
+    "locator": "//div[starts-with(text(), 'amount must be')]']"
   }
 ]
