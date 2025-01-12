@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import static org.junit.Assert.fail;
+
 public class BasePage {
 
     protected static final Logger logger = LogManager.getLogger();
@@ -131,6 +133,22 @@ public class BasePage {
             logger.info("Alert kapatıldı.");
         } catch (NoAlertPresentException e) {
             logger.info("Herhangi bir alert bulunamadı.");
+        }
+    }
+
+    public void verifyAndAcceptAlertOrFail() {
+        try {
+            WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));
+            wait.until(ExpectedConditions.alertIsPresent()); // Alert'in var olup olmadığını kontrol et
+
+            Alert alert = webDriver.switchTo().alert(); // Alert'e geçiş yap
+            logger.info("Alert mesajı: " + alert.getText()); // Konsola alert mesajını yazdır
+
+            alert.accept(); // "Tamam" butonuna bas
+            logger.info("Alert kapatıldı.");
+        } catch (TimeoutException e) {
+            logger.error("Beklenen alert bulunamadı, test başarısız!");
+            fail("Beklenen alert ekranda görünmedi!"); // Testi başarısız yap
         }
     }
 

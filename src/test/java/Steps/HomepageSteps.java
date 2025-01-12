@@ -78,10 +78,12 @@ public class HomepageSteps {
     public void acceptAlert() {
         try {
             basePage.acceptAlertIfPresent();
-        } catch (Exception e) {
+        } catch (Exception e) {}
+    }
 
-        }
-
+    @And("Kullanıcı eğer bir alert görürse tamam butonuna basar, yoksa test başarısız olur")
+    public void checkAndAcceptAlert() {
+        basePage.verifyAndAcceptAlertOrFail();
     }
 
 }

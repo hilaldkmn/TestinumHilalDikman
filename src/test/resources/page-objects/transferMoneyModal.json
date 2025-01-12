@@ -60,21 +60,27 @@
     "locator": "//div[text()='Send']"
   },
   {
-    "locatorName": "AccountSenderInfo",
+    "locatorName": "accountSenderInfo",
     "locatorDescription": "Account Sender Info on Account page",
     "locatorType": "xpath",
     "locator": "(//div[contains(text(), 'Sender:')]/following-sibling::div[contains(text(), 'hilal')])[1]"
   },
   {
-    "locatorName": "AccountReceiverInfo",
+    "locatorName": "accountReceiverInfo",
     "locatorDescription": "Account Receiver Info on Account page",
     "locatorType": "xpath",
     "locator": "(//div[contains(text(), 'Receiver:')]/following-sibling::div[contains(text(), 'Testinium-2')])[1]"
   },
   {
-    "locatorName": "LastSendAmountInfo",
+    "locatorName": "lastSendAmountInfo",
     "locatorDescription": "Last send amount Info on Account page",
     "locatorType": "xpath",
     "locator": "(//div[contains(text(), 'Amount:')]/following-sibling::div[contains(text(), '20')])[1]"
+  },
+  {
+    "locatorName": "internalError",
+    "locatorDescription": "Internal Error info",
+    "locatorType": "xpath",
+    "locator": "//div[text()='Internal Error Occurred!']"
   }
 ]

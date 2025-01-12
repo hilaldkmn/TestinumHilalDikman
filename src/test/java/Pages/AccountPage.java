@@ -66,10 +66,8 @@ public class AccountPage extends BasePage {
     }
 
     public void checkAmountSentBalanceWithAPI(String amountSent){
-        double dblamountSent = Double.parseDouble(amountSent);
-        Map<String, Object> accountInformation = AccountService.getAccountInformation();
-        double balanceFromDatabase = (double) accountInformation.get("balance");
-        double endbalance = storedBalance - dblamountSent;
+        double dblAmountSent = Double.parseDouble(amountSent);
+        double endbalance = storedBalance - dblAmountSent;
         System.out.println("son "+endbalance);
         System.out.println("eski "+storedBalance);
         assertEquals(storedBalance, endbalance, 0.0);
