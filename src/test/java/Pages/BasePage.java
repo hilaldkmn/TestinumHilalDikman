@@ -198,6 +198,8 @@ public class BasePage {
     public void assertElementContainsSpecificText(String element, String expectedText) {
         WebElement webElement = findElement(LocatorManager.getLocator(element));
         String text = webElement.getText();
+        System.out.println(text);
+        System.out.println(expectedText);
         Assert.assertTrue("Beklenen metin bulunamadı!", text.contains(expectedText));
     }
 

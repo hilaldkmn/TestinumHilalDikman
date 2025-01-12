@@ -42,7 +42,37 @@ Feature: CatchyLabs Actions Add Money Modal
     And kullanıcı "amountInput" alanına "20" yazar
     And kullanıcı "addMoneyModalAddButton" butonuna tıklar
     And kullanıcının "lastSendAmountInfo" elementinde "20" metnini gördüğü doğrulanır
-    And bir daha incele calismasi gerekli
+
+  @LastAddMoneyTestCaseFromAPI @all
+  Scenario: Kendi hesabina 20 dolar ekleme ve API'den gonderilen tutar kontrolu
+    And kullanıcı "cardNumberInput" alanına "123412341234" yazar
+    And kullanıcı "cardHolderInput" alanına "hilal2" yazar
+    And kullanıcı "expiryDateInput" alanına "1026" yazar
+    And kullanıcı "cVVInput" alanına "110" yazar
+    And kullanıcı "amountInput" alanına "20" yazar
+    And kullanıcı "addMoneyModalAddButton" butonuna tıklar
+    And kullanıcının yaptığı işlem miktarı 20 olarak API den teyit edilir
+
+  @AddMoneySenderTestCaseFromAPI @all
+  Scenario: Kendi hesabina 20 dolar ekleme ve API'den gonderen kontrolu
+    And kullanıcı "cardNumberInput" alanına "123412341234" yazar
+    And kullanıcı "cardHolderInput" alanına "hilal2" yazar
+    And kullanıcı "expiryDateInput" alanına "1026" yazar
+    And kullanıcı "cVVInput" alanına "110" yazar
+    And kullanıcı "amountInput" alanına "20" yazar
+    And kullanıcı "addMoneyModalAddButton" butonuna tıklar
+    And kullanıcının islemi gonderen "hilal2" olarak API den teyit edilir
+
+  @AddMoneyReceiverTestCaseFromAPI @all
+  Scenario: Kendi hesabina 20 dolar ekleme ve API'den alıcı kontrolu
+    And kullanıcı "cardNumberInput" alanına "123412341234" yazar
+    And kullanıcı "cardHolderInput" alanına "hilal2" yazar
+    And kullanıcı "expiryDateInput" alanına "1026" yazar
+    And kullanıcı "cVVInput" alanına "110" yazar
+    And kullanıcı "amountInput" alanına "20" yazar
+    And kullanıcı "addMoneyModalAddButton" butonuna tıklar
+    And kullanıcının islemi alici "hilal" olarak API den teyit edilir
+
 
   @CheckAmountAfterAmountReceiverTestCase @all
   Scenario: Kendi hesabina 200 dolar gonderme ve artan bakiye kontrolu
@@ -79,7 +109,7 @@ Feature: CatchyLabs Actions Add Money Modal
     And kullanıcının "wrongDateExpiryDateAlert" elementinde "Wrong date. Please give a correct date" metnini gördüğü doğrulanır
 
   @CheckAmountAfterAmountReceiverTestCase @all
-  Scenario: Kendi hesabina 200 dolar gonderme ve artan bakiye kontrolu
+  Scenario: Kendi hesabina string dolar gonderme
     And API balance değeri hafızaya alınır
     And kullanıcı "cardNumberInput" alanına "123412341234" yazar
     And kullanıcı "cardHolderInput" alanına "hilal2" yazar
@@ -87,5 +117,4 @@ Feature: CatchyLabs Actions Add Money Modal
     And kullanıcı "cVVInput" alanına "110" yazar
     And kullanıcı "amountInput" alanına "asdasd" yazar
     And kullanıcı "cardHolderInput" butonuna tıklar
-    And kullanıcının "wrongDateExpiryDateAlert" elementinde "" metnini gördüğü doğrulanır
-    And bir daha incele calismasi gerekli
+    And kullanıcının "stringAmountAlert" elementinde "amount must be a `number` type, but the final value was: `NaN` (cast from the value `\"asdasd\"`)." metnini gördüğü doğrulanır

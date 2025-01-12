@@ -72,6 +72,33 @@ Feature: CatchyLabs Actions Transfer Money Modal
     And kullanıcı "transferMoneySendButton" butonuna tıklar
     And kullanıcının "lastSendAmountInfo" elementinde "20" metnini gördüğü doğrulanır
 
+  @LastSendAmountTestCaseFromAPI @all
+  Scenario: Testinium-2 alici hesabina 20 dolar gonderme ve API'den gonderilen tutar kontrolu
+    And kullanıcı "receiverAccountSelect" butonuna tıklar
+    And kullanıcı "Testinium-2Account" butonuna tıklar
+    And Açılan uyarı varsa Tamam butonuna basılır
+    And kullanıcı "transferMoneyAmount" alanına "20" yazar
+    And kullanıcı "transferMoneySendButton" butonuna tıklar
+    And kullanıcının yaptığı işlem miktarı 20 olarak API den teyit edilir
+
+  @LastSendSenderTestCaseFromAPI @all
+  Scenario: Testinium-2 alici hesabina 20 dolar gonderme ve API'den gonderen kontrolu
+    And kullanıcı "receiverAccountSelect" butonuna tıklar
+    And kullanıcı "Testinium-2Account" butonuna tıklar
+    And Açılan uyarı varsa Tamam butonuna basılır
+    And kullanıcı "transferMoneyAmount" alanına "20" yazar
+    And kullanıcı "transferMoneySendButton" butonuna tıklar
+    And kullanıcının islemi gonderen "hilal" olarak API den teyit edilir
+
+  @LastSendReceiverTestCaseFromAPI @all
+  Scenario: Testinium-2 alici hesabina 20 dolar gonderme ve API'den alıcı kontrolu
+    And kullanıcı "receiverAccountSelect" butonuna tıklar
+    And kullanıcı "Testinium-2Account" butonuna tıklar
+    And Açılan uyarı varsa Tamam butonuna basılır
+    And kullanıcı "transferMoneyAmount" alanına "20" yazar
+    And kullanıcı "transferMoneySendButton" butonuna tıklar
+    And kullanıcının islemi alici "Testinium-2" olarak API den teyit edilir
+
   @CheckAmountAfterAmountSentTestCase @all
   Scenario: Testinium-2 alici hesabina 200 dolar gonderme ve kalan bakiye kontrolu
     And API balance değeri hafızaya alınır

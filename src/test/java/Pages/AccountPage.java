@@ -7,7 +7,9 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.text.DecimalFormat;
 import java.text.ParseException;
+import java.util.List;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
@@ -56,28 +58,47 @@ public class AccountPage extends BasePage {
         logger.info(" | API Balance: " + balanceFromDatabase);
     }
 
-    public void verifyStoredBalanceWithAPI(){
+    public void verifyStoredBalanceWithAPI() {
         Map<String, Object> accountInformation = AccountService.getAccountInformation();
         double balanceFromDatabase = (double) accountInformation.get("balance");
         assertEquals(balanceFromDatabase, storedBalance, 0.0);
         logger.info("Stored Balance (API’den gelen önceki değer): " + storedBalance);
     }
 
-    public void checkAmountSentBalanceWithAPI(String amountSent){
+    public void checkAmountSentBalanceWithAPI(String amountSent) {
         double dblAmountSent = Double.parseDouble(amountSent);
         double endbalance = storedBalance - dblAmountSent;
-        System.out.println("soncikarilan "+endbalance);
-        System.out.println("yeni "+storedBalance);
+        System.out.println("soncikarilan " + endbalance);
+        System.out.println("yeni " + storedBalance);
         assertEquals(storedBalance, endbalance, 0.0);
         logger.info("Stored Balance (API’den gelen önceki değer): " + storedBalance);
     }
 
-    public void checkAmountReceiveBalanceWithAPI(String amountreceived){
+    public void checkAmountReceiveBalanceWithAPI(String amountreceived) {
         double dblAmountSent = Double.parseDouble(amountreceived);
         double endbalance = storedBalance + dblAmountSent;
-        System.out.println("sontoplam "+ endbalance);
-        System.out.println("yeni "+ storedBalance);
         assertEquals(storedBalance, endbalance, 0.0);
         logger.info("Stored Balance (API’den gelen önceki değer): " + storedBalance);
+    }
+
+    public void compareTxAmountWithAPI(double txAmount) {
+        Map<String, Object> transactionsData = AccountService.getAccountTransactions();
+        List<Map<String, Object>> transactions = (List<Map<String, Object>>) transactionsData.get("transactions");
+        double latestTransactionAmount = (double) transactions.get(0).get("amount");
+        assertEquals(txAmount, latestTransactionAmount,0);
+    }
+
+    public void compareTxSenderWithAPI(String txSender) {
+        Map<String, Object> transactionsData = AccountService.getAccountTransactions();
+        List<Map<String, Object>> transactions = (List<Map<String, Object>>) transactionsData.get("transactions");
+        String latestTransactionSender = (String) transactions.get(0).get("sender");
+        assertEquals(txSender, latestTransactionSender);
+    }
+
+    public void compareTxReceiverWithAPI(String txReceive) {
+        Map<String, Object> transactionsData = AccountService.getAccountTransactions();
+        List<Map<String, Object>> transactions = (List<Map<String, Object>>) transactionsData.get("transactions");
+        String latestTransactionReceiver = (String) transactions.get(0).get("receiver");
+        assertEquals(txReceive, latestTransactionReceiver);
     }
 }

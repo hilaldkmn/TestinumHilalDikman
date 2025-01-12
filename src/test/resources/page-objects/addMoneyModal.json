@@ -75,6 +75,6 @@
     "locatorName": "stringAmountAlert",
     "locatorDescription": "String Amount Alert on Add Money Modal",
     "locatorType": "xpath",
-    "locator": "//div[starts-with(text(), 'amount must be')]']"
+    "locator": "//div[starts-with(text(), 'amount must be a `number` type')]"
   }
 ]

@@ -75,7 +75,7 @@
     "locatorName": "lastSendAmountInfo",
     "locatorDescription": "Last send amount Info on Account page",
     "locatorType": "xpath",
-    "locator": "(//div[contains(text(), 'Amount:')]/following-sibling::div[contains(text(), '20')])[1]"
+    "locator": "(//div[contains(text(), 'Amount:')]/following-sibling::div/div[text()='20.00'])[1]"
   },
   {
     "locatorName": "internalError",

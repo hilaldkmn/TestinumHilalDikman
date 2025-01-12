@@ -15,7 +15,13 @@ public class BaseApiService {
         HttpURLConnection connection = null;
 
         try {
-            URL apiUrl = new URL(System.getProperty("apiBaseURL") + System.getProperty(endpoint));
+            String URL = null;
+            if (endpoint.contains("https://")){
+                URL = endpoint;
+            } else {
+                URL = System.getProperty("apiBaseURL") + System.getProperty(endpoint);
+            }
+            URL apiUrl = new URL(URL);
             connection = (HttpURLConnection) apiUrl.openConnection();
             connection.setRequestMethod(requestType.toUpperCase());
             connection.setConnectTimeout(10000);

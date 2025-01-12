@@ -57,6 +57,7 @@ public class AccountPageSteps {
         try {
             basePage.assertElementContainsSpecificText(element, expectedText);
         } catch (Exception e){
+            System.out.println(e.getMessage());
             fail();
         }
     }
@@ -81,9 +82,19 @@ public class AccountPageSteps {
         accountPage.checkAmountReceiveBalanceWithAPI(element);
     }
 
-    @And("bir daha incele calismasi gerekli")
-    public void gerekli(String element){
-        System.out.println("gerekli");
+    @And("kullanıcının yaptığı işlem miktarı {double} olarak API den teyit edilir")
+    public void compareTxAmountWithAPI(double amount){
+        accountPage.compareTxAmountWithAPI(amount);
+    }
+
+    @And("kullanıcının islemi gonderen {string} olarak API den teyit edilir")
+    public void compareTxSenderWithAPI(String sender){
+        accountPage.compareTxSenderWithAPI(sender);
+    }
+
+    @And("kullanıcının islemi alici {string} olarak API den teyit edilir")
+    public void compareTxReceiverWithAPI(String receive){
+        accountPage.compareTxReceiverWithAPI(receive);
     }
 
 }
