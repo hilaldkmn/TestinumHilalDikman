@@ -6,9 +6,11 @@ import Pages.Homepage;
 import Utils.TestContext;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.BeforeStep;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import org.openqa.selenium.Alert;
 
 import static org.junit.Assert.*;
 
@@ -21,11 +23,9 @@ public class HomepageSteps {
     Homepage homepage;
     AccountPage accountPage;
 
-
     @Before
     public void setUp() {
         testContext.getDriverManager().getDriver();
-
     }
 
     @After
@@ -69,6 +69,19 @@ public class HomepageSteps {
         homepage.checkUserLoggedOut();
     }
 
+    @And("{string} saniye beklenir")
+    public void waitForGivenSeconds(String seconds) {
+        basePage.waitForSeconds(seconds);
+    }
 
+    @And("Açılan uyarı varsa Tamam butonuna basılır")
+    public void acceptAlert() {
+        try {
+            basePage.acceptAlertIfPresent();
+        } catch (Exception e) {
+
+        }
+
+    }
 
 }

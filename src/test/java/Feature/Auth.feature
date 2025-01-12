@@ -1,4 +1,4 @@
-Feature: CatchyLabs Actions Homepage
+Feature: CatchyLabs Actions AuthPage
 
   @AuthTestCase @all
   Scenario: CatchyLabs'e giriş yapılması
