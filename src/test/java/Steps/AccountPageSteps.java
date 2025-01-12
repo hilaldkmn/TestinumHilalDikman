@@ -57,7 +57,6 @@ public class AccountPageSteps {
         try {
             basePage.assertElementContainsSpecificText(element, expectedText);
         } catch (Exception e){
-            System.out.println(e.getMessage());
             fail();
         }
     }

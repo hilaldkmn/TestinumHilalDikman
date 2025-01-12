@@ -74,7 +74,7 @@ Feature: CatchyLabs Actions Add Money Modal
     And kullanıcının islemi alici "hilal" olarak API den teyit edilir
 
 
-  @CheckAmountAfterAmountReceiverTestCase @all
+  @CheckAmountAfterAmountReceiverTestCaseFromAPI @all
   Scenario: Kendi hesabina 200 dolar gonderme ve artan bakiye kontrolu
     And API balance değeri hafızaya alınır
     And kullanıcı "cardNumberInput" alanına "123412341234" yazar
@@ -84,6 +84,15 @@ Feature: CatchyLabs Actions Add Money Modal
     And kullanıcı "amountInput" alanına "200" yazar
     And kullanıcı "addMoneyModalAddButton" butonuna tıklar
     And Kullanıcı "200" tutarını kendine gönderdiğinde kalan bakiye doğru hesaplanmalıdır
+
+  @ExtraNumberCVVTestCase @all
+  Scenario: Kendi hesabinin fazla CVV numarasi girme
+    And API balance değeri hafızaya alınır
+    And kullanıcı "cardNumberInput" alanına "123412341234" yazar
+    And kullanıcı "cardHolderInput" alanına "hilal2" yazar
+    And kullanıcı "expiryDateInput" alanına "1026" yazar
+    And kullanıcı "cVVInput" alanına "9999" yazar
+    And Kullanıcı eğer bir alert görürse tamam butonuna basar, yoksa test başarısız olur
 
   @MissingCardNumberTestCase @all
   Scenario: Kendi hesabinin eksik kart numarasi girme
@@ -98,6 +107,7 @@ Feature: CatchyLabs Actions Add Money Modal
     And kullanıcı "cardNumberInput" alanına "12341234123412341234" yazar
     And kullanıcı "cardHolderInput" butonuna tıklar
     And kullanıcının "extraNumberCardNumberAlert" elementinde "Too Long!" metnini gördüğü doğrulanır
+
 
   @WrongDateTestCase @all
   Scenario: Kendi hesabinin eksik son kullanma tarihi girme
@@ -118,3 +128,24 @@ Feature: CatchyLabs Actions Add Money Modal
     And kullanıcı "amountInput" alanına "asdasd" yazar
     And kullanıcı "cardHolderInput" butonuna tıklar
     And kullanıcının "stringAmountAlert" elementinde "amount must be a `number` type, but the final value was: `NaN` (cast from the value `\"asdasd\"`)." metnini gördüğü doğrulanır
+
+  @ExtraStringcardHolderTestCase @all
+  Scenario: Kendi hesabinin ismini kart fazla harf girme
+    And API balance değeri hafızaya alınır
+    And kullanıcı "cardHolderInput" alanına "adfafasfafafasfasfasfasfafsasff" yazar
+    And Kullanıcı eğer bir alert görürse tamam butonuna basar, yoksa test başarısız olur
+
+  @ExtraStringCardNumberAlertTestCase @all
+  Scenario: Kendi hesabinin fazla string  girme Alert uyarisi
+    And API balance değeri hafızaya alınır
+    And kullanıcı "cardNumberInput" alanına "asdfasdf" yazar
+    And kullanıcı "cardNumberInput" alanına "asdfasdf" yazar
+    And kullanıcı "cardNumberInput" alanına "asdfasdf" yazar
+    And kullanıcı "addMoneyModalExit" butonuna tıklar
+    And kullanıcının "warningContent" elementinde "Opss! Something went wrong" metnini gördüğü doğrulanır
+
+  @ExtraStringAmountTestCase @all
+  Scenario: Kendi hesabinin tutarina string girme
+    And API balance değeri hafızaya alınır
+    And kullanıcı "amountInput" alanına "adfafasfafafasfasfasfasfafsasff" yazar
+    And Kullanıcı eğer bir alert görürse tamam butonuna basar, yoksa test başarısız olur

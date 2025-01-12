@@ -99,7 +99,7 @@ Feature: CatchyLabs Actions Transfer Money Modal
     And kullanıcı "transferMoneySendButton" butonuna tıklar
     And kullanıcının islemi alici "Testinium-2" olarak API den teyit edilir
 
-  @CheckAmountAfterAmountSentTestCase @all
+  @CheckAmountAfterAmountSentTestCaseFromAPI @all
   Scenario: Testinium-2 alici hesabina 200 dolar gonderme ve kalan bakiye kontrolu
     And API balance değeri hafızaya alınır
     And kullanıcı "receiverAccountSelect" butonuna tıklar
@@ -109,7 +109,7 @@ Feature: CatchyLabs Actions Transfer Money Modal
     And kullanıcı "transferMoneySendButton" butonuna tıklar
     And Kullanıcı "200" tutarını gönderdiğinde kalan bakiye doğru hesaplanmalıdır
 
-  @LastSendAmountNegativeTestCase @all
+  @LastSendAmountNegativeTestCaseFromAPI @all
   Scenario: Testinium-2 alici hesabina negatif tutar gonderilmemesi kontrolu
     And API balance değeri hafızaya alınır
     And kullanıcı "receiverAccountSelect" butonuna tıklar

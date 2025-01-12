@@ -76,5 +76,17 @@
     "locatorDescription": "String Amount Alert on Add Money Modal",
     "locatorType": "xpath",
     "locator": "//div[starts-with(text(), 'amount must be a `number` type')]"
+  },
+  {
+    "locatorName": "addMoneyModalExit",
+    "locatorDescription": "Modal exit on Add Money Modal",
+    "locatorType": "xpath",
+    "locator": "//div[contains(text(), 'Add money')]/following-sibling::div"
+  },
+  {
+    "locatorName": "warningContent",
+    "locatorDescription": "Warning Content on Add Money Modal",
+    "locatorType": "xpath",
+    "locator": "//div[text()='Opss! Something went wrong']"
   }
 ]

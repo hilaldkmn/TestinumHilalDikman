@@ -180,11 +180,14 @@ public class BasePage {
 
     public void enterTextToInput(String element, String text) {
         WebElement searchElement = findElement(LocatorManager.getLocator(element));
+        if (!searchElement.getAttribute("value").isEmpty()) {
+            searchElement.clear();
+        }
         if (text.startsWith("[") && text.endsWith("]")) {
             text = System.getProperty(text.substring(1, text.length() - 1));
         }
         sendKeys(searchElement, text);
-        logger.info("Entered " + text + " to " + element);
+        logger.info("Entered '" + text + "' into '" + element + "'");
     }
 
     public void clickButtonOnPage(String element) {
@@ -198,10 +201,6 @@ public class BasePage {
     public void assertElementContainsSpecificText(String element, String expectedText) {
         WebElement webElement = findElement(LocatorManager.getLocator(element));
         String text = webElement.getText();
-        System.out.println(text);
-        System.out.println(expectedText);
         Assert.assertTrue("Beklenen metin bulunamadı!", text.contains(expectedText));
     }
-
-
 }

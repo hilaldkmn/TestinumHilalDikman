@@ -10,5 +10,17 @@
     "locatorDescription": "Edit Account text on Edit Modal",
     "locatorType": "xpath",
     "locator": "//div[@dir='auto']/preceding-sibling::div[contains(text(), 'Edit account')]"
+  },
+  {
+    "locatorName": "editAccountNameInput",
+    "locatorDescription": "Edit Account Name input on Edit Modal",
+    "locatorType": "xpath",
+    "locator": "//div[contains(text(), 'Account name')]/following-sibling::div/input"
+  },
+  {
+    "locatorName": "editAccountUpdateButton",
+    "locatorDescription": "Update Button on Edit Modal",
+    "locatorType": "xpath",
+    "locator": "//div[contains(text(), 'Account name')]/following-sibling::div/input"
   }
 ]
