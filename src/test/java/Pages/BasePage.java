@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -120,6 +121,32 @@ public class BasePage {
         }
     }
 
+    public void acceptAlertIfPresent() {
+        try {
+            WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(2));
+            wait.until(ExpectedConditions.alertIsPresent()); // Alert'in var olup olmadığını kontrol et
+            Alert alert = webDriver.switchTo().alert(); // Alert'e geçiş yap
+            logger.info("Alert mesajı: " + alert.getText()); // Konsola alert mesajını yazdır
+            alert.accept(); // "Tamam" butonuna bas
+            logger.info("Alert kapatıldı.");
+        } catch (NoAlertPresentException e) {
+            logger.info("Herhangi bir alert bulunamadı.");
+        }
+    }
+
+    public void waitForSeconds(String seconds) {
+        try {
+            int waitTime = Integer.parseInt(seconds); // String'i integer'a çevir
+            Thread.sleep(waitTime * 1000); // Milisaniyeye çevirerek beklet
+            logger.info(waitTime + " saniye bekleniyor...");
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt(); // Thread'in kesildiğini belirt
+            logger.error("Bekleme sırasında hata oluştu!", e);
+        } catch (NumberFormatException e) {
+            logger.error("Geçersiz süre formatı: " + seconds, e);
+        }
+    }
+
     public static double formatToDouble(String formattedNumber) {
         if (formattedNumber == null || formattedNumber.isEmpty()) {
             throw new IllegalArgumentException("Invalid input: formattedNumber cannot be null or empty");
@@ -143,9 +170,17 @@ public class BasePage {
     }
 
     public void clickButtonOnPage(String element) {
+        WebDriverWait wait = new WebDriverWait(webDriver,  Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.presenceOfElementLocated(LocatorManager.getLocator(element)));
         WebElement buttonElement = findElement(LocatorManager.getLocator(element));
         click(buttonElement);
         logger.info("Clicked on " + element);
+    }
+
+    public void assertElementContainsSpecificText(String element, String expectedText) {
+        WebElement webElement = findElement(LocatorManager.getLocator(element));
+        String text = webElement.getText();
+        Assert.assertTrue("Beklenen metin bulunamadı!", text.contains(expectedText));
     }
 
 

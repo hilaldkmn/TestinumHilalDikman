@@ -15,6 +15,7 @@ import static org.junit.Assert.assertEquals;
 
 public class AccountPage extends BasePage {
     protected static final Logger logger = LogManager.getLogger();
+    private double storedBalance = 0.0;
 
     public AccountPage(WebDriver webDriver) {
         super(webDriver);
@@ -46,6 +47,33 @@ public class AccountPage extends BasePage {
         String typeFromDatabase = (String) typeInformation.get("bank_account_type");
         logger.info("Checking if Type Name is the same as in the database");
         assertEquals(type, typeFromDatabase);
+    }
+
+    public void storedBalanceIsSameAsDatabase() throws ParseException {
+        Map<String, Object> accountInformation = AccountService.getAccountInformation();
+        double balanceFromDatabase = (double) accountInformation.get("balance");
+        storedBalance = balanceFromDatabase;
+        System.out.println("ilk "+storedBalance);
+        logger.info(" | API Balance: " + balanceFromDatabase);
+    }
+
+    public void verifyStoredBalanceWithAPI(){
+        Map<String, Object> accountInformation = AccountService.getAccountInformation();
+        double balanceFromDatabase = (double) accountInformation.get("balance");
+        System.out.println("son "+balanceFromDatabase);
+        assertEquals(balanceFromDatabase, storedBalance, 0.0);
+        logger.info("Stored Balance (API’den gelen önceki değer): " + storedBalance);
+    }
+
+    public void checkAmountSentBalanceWithAPI(String amountSent){
+        double dblamountSent = Double.parseDouble(amountSent);
+        Map<String, Object> accountInformation = AccountService.getAccountInformation();
+        double balanceFromDatabase = (double) accountInformation.get("balance");
+        double endbalance = storedBalance - dblamountSent;
+        System.out.println("son "+endbalance);
+        System.out.println("eski "+storedBalance);
+        assertEquals(storedBalance, endbalance, 0.0);
+        logger.info("Stored Balance (API’den gelen önceki değer): " + storedBalance);
     }
 
 }

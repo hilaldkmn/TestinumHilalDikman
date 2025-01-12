@@ -1,0 +1,14 @@
+[
+  {
+    "locatorName": "addMoneyButton",
+    "locatorDescription": "Add money button on Account page",
+    "locatorType": "xpath",
+    "locator": "//div[@tabindex='0']//div[contains(text(), 'Add money')]"
+  },
+  {
+    "locatorName": "addMoneyText",
+    "locatorDescription": "Add money text on Add Money Modal",
+    "locatorType": "xpath",
+    "locator": "//div[@dir='auto']/preceding-sibling::div[contains(text(), 'Add money')]"
+  }
+]

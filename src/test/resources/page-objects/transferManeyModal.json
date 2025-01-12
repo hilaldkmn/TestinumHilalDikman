@@ -1,0 +1,80 @@
+[
+  {
+  "locatorName": "transferMoneyButton",
+  "locatorDescription": "Transfer money button on Account page",
+  "locatorType": "xpath",
+  "locator": "//div[@tabindex='0']//div[contains(text(), 'Transfer money')]"
+  },
+  {
+    "locatorName": "transferMoneyText",
+    "locatorDescription": "Transfer Money text on Transfer Money Modal",
+    "locatorType": "xpath",
+    "locator": "//div[@dir='auto']/preceding-sibling::div[contains(text(), 'Transfer money')]"
+  },
+  {
+    "locatorName": "receiverAccountSelect",
+    "locatorDescription": "Receiver Account select list on Transfer Money Modal",
+    "locatorType": "xpath",
+    "locator": "//option[starts-with(@value, 'caad079a')]/parent::select"
+  },
+  {
+    "locatorName": "Testinium-2Account",
+    "locatorDescription": "Testinium-2 Account on Receiver Account select list",
+    "locatorType": "xpath",
+    "locator": "//option[starts-with(@value, 'caad079a')]"
+  },
+  {
+    "locatorName": "Testinium-3Account",
+    "locatorDescription": "Testinium-3 Account on Receiver Account select list",
+    "locatorType": "xpath",
+    "locator": "//option[starts-with(@value, 'c9ac0520')]"
+  },
+  {
+    "locatorName": "Testinium-1Account",
+    "locatorDescription": "Testinium-1 Account on Receiver Account select list",
+    "locatorType": "xpath",
+    "locator": "//option[starts-with(@value, '528e70c4')]"
+  },
+  {
+    "locatorName": "Testinium-5Account",
+    "locatorDescription": "Testinium-5 Account on Receiver Account select list",
+    "locatorType": "xpath",
+    "locator": "//option[starts-with(@value, 'e78c9654')]"
+  },
+  {
+    "locatorName": "Testinium-4Account",
+    "locatorDescription": "Testinium-4 Account on Receiver Account select list",
+    "locatorType": "xpath",
+    "locator": "//option[starts-with(@value, '6713fd4d')]"
+  },
+  {
+    "locatorName": "transferMoneyAmount",
+    "locatorDescription": "Amount input on Transfer Money Modal",
+    "locatorType": "xpath",
+    "locator": "//div[@class='css-175oi2r r-13qz1uu']/input"
+  },
+  {
+    "locatorName": "transferMoneySendButton",
+    "locatorDescription": "Send button on Transfer Money Modal",
+    "locatorType": "xpath",
+    "locator": "//div[text()='Send']"
+  },
+  {
+    "locatorName": "AccountSenderInfo",
+    "locatorDescription": "Account Sender Info on Account page",
+    "locatorType": "xpath",
+    "locator": "(//div[contains(text(), 'Sender:')]/following-sibling::div[contains(text(), 'hilal')])[1]"
+  },
+  {
+    "locatorName": "AccountReceiverInfo",
+    "locatorDescription": "Account Receiver Info on Account page",
+    "locatorType": "xpath",
+    "locator": "(//div[contains(text(), 'Receiver:')]/following-sibling::div[contains(text(), 'Testinium-2')])[1]"
+  },
+  {
+    "locatorName": "LastSendAmountInfo",
+    "locatorDescription": "Last send amount Info on Account page",
+    "locatorType": "xpath",
+    "locator": "(//div[contains(text(), 'Amount:')]/following-sibling::div[contains(text(), '20')])[1]"
+  }
+]

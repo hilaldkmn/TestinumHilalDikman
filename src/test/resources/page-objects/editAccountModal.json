@@ -1,0 +1,14 @@
+[
+  {
+    "locatorName": "editAccountButton",
+    "locatorDescription": "Edit account button on Account page",
+    "locatorType": "xpath",
+    "locator": "//div[@tabindex='0']//div[contains(text(), 'Edit account')]"
+  },
+  {
+    "locatorName": "editAccountText",
+    "locatorDescription": "Edit Account text on Edit Modal",
+    "locatorType": "xpath",
+    "locator": "//div[@dir='auto']/preceding-sibling::div[contains(text(), 'Edit account')]"
+  }
+]

@@ -1,8 +1,0 @@
-[
-  {
-    "locatorName": "editAccountButton",
-    "locatorDescription": "Edit account button on Account page",
-    "locatorType": "xpath",
-    "locator": "//div[contains(text(), 'Edit account')]"
-  }
-]

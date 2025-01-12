@@ -9,6 +9,8 @@ import io.cucumber.java.BeforeStep;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 
+import java.text.ParseException;
+
 import static org.junit.Assert.fail;
 
 public class AccountPageSteps {
@@ -48,5 +50,29 @@ public class AccountPageSteps {
         } catch (Exception e) {
             fail();
         }
+    }
+
+    @And("kullanıcının {string} elementinde {string} metnini gördüğü doğrulanır")
+    public void verifyTextOnPage(String element, String expectedText) {
+        try {
+            basePage.assertElementContainsSpecificText(element, expectedText);
+        } catch (Exception e){
+            fail();
+        }
+    }
+
+    @And("API balance değeri hafızaya alınır")
+    public void storeBalance() throws ParseException {
+        accountPage.storedBalanceIsSameAsDatabase();
+    }
+
+    @And("API balance değeri hafızadaki değer ile karşılaştırılır")
+    public void compareBalanceWithAPI() {
+        accountPage.verifyStoredBalanceWithAPI();
+    }
+
+    @And("Kullanıcı {string} tutarını gönderdiğinde kalan bakiye doğru hesaplanmalıdır")
+    public void checkAmountSentBalanceWithAPI(String element){
+        accountPage.checkAmountSentBalanceWithAPI(element);
     }
 }
